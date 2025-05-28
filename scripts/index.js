@@ -11,7 +11,7 @@ finalBtn.addEventListener('click',()=>{
      && storageData.level3 === true
   )
   {
-   finalBtn.href = 'http://127.0.0.1:5500/varu.html'
+   finalBtn.href = 'varu.html'
   }
   else
   {
