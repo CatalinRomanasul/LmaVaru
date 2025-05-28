@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/provocare4.css">
+
+</head>
+<body>
+    <div class="game-container">
+        <h1>Blackjack Varu fa 3000 chips</h1> <div class="game-info">
+            <div class="chip-display">
+                <span class="chip-icon">💰</span> Chips: <span id="chips" class="js-chips">1000/3000</span>
+            </div>
+            <div class="bet-display">
+                <span class="chip-icon">💲</span> Current Bet: <span class="current-bet js-current-bet">0</span>
+            </div>
+        </div>
+        
+        <div class="bet-controls">
+            <button class="bet-btn" data-bet-amount="10">+10</button>
+            <button class="bet-btn" data-bet-amount="50">+50</button>
+            <button class="bet-btn" data-bet-amount="100">+100</button>
+            <button class="bet-btn" id="reset-bet-btn">Reset</button>
+        </div>
+        
+        <div class="game-table">
+            <div class="hand-area">
+                <span class="hand-label">Mana Dealearului</span>
+                <div class="hand" id="dealer-hand">
+                    <div class="card">
+                        <div class="card-back"></div>
+                    </div>
+                     <div class="card red card-face dealt">
+                        <span class="card-suit top-left">♦</span>
+                        <span class="card-value">K</span>
+                        <span class="card-suit bottom-right">♦</span>
+                    </div>
+                </div>
+                <div class="score" id="dealer-score">Score: 10 + ?</div>
+            </div>
+            
+            <div class="message" id="message">Adu cardu</div>
+            
+            <div class="hand-area">
+                <span class="hand-label">Cartile tale</span>
+                <div class="hand" id="player-hand">
+                    <div class="card card-face dealt">
+                        <span class="card-suit top-left">♠</span>
+                        <span class="card-value">7</span>
+                        <span class="card-suit bottom-right">♠</span>
+                    </div>
+                    <div class="card red card-face dealt">
+                        <span class="card-suit top-left">♥</span>
+                        <span class="card-value">Q</span>
+                        <span class="card-suit bottom-right">♥</span>
+                    </div>
+                </div>
+                <div class="score" id="player-score">Scor: 17</div>
+            </div>
+        </div>
+        
+        <div class="controls js-controls">
+            <button class="action-js" id="deal-btn">Deal</button>
+            <button class="action-js"  id="hit-btn" disabled>Hit</button>
+            <button  class="action-js" id="stand-btn" disabled>Stand</button>
+            <button class="action-js"  id="double-btn" disabled>Double</button>
+        </div>
+    </div>
+
+    <script type="module" src="scripts/challenge4.js">
+    
+
+      
+      
+    </script>
+</body>
+</html>

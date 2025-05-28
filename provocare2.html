@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Descifrează codul Morse</title>
+<link rel="stylesheet" href="/css/provocare2.css">
+</head>
+<body>
+
+<button class="toggle-btn js-toggle" aria-label="Toggle sidebar">☰</button>
+
+<div class="sidebar" id="sidebar">
+  <h2>Litere Morse</h2>
+  <ul>
+    <li><span class="letter">A</span> <span class="morse-code">·−</span></li>
+    <li><span class="letter">B</span> <span class="morse-code">−···</span></li>
+    <li><span class="letter">C</span> <span class="morse-code">−·−·</span></li>
+    <li><span class="letter">D</span> <span class="morse-code">−··</span></li>
+    <li><span class="letter">E</span> <span class="morse-code">·</span></li>
+    <li><span class="letter">F</span> <span class="morse-code">··−·</span></li>
+    <li><span class="letter">G</span> <span class="morse-code">−−·</span></li>
+    <li><span class="letter">H</span> <span class="morse-code">····</span></li>
+    <li><span class="letter">I</span> <span class="morse-code">··</span></li>
+    <li><span class="letter">J</span> <span class="morse-code">·−−−</span></li>
+    <li><span class="letter">K</span> <span class="morse-code">−·−</span></li>
+    <li><span class="letter">L</span> <span class="morse-code">·−··</span></li>
+    <li><span class="letter">M</span> <span class="morse-code">−−</span></li>
+    <li><span class="letter">N</span> <span class="morse-code">−·</span></li>
+    <li><span class="letter">O</span> <span class="morse-code">−−−</span></li>
+    <li><span class="letter">P</span> <span class="morse-code">·−−·</span></li>
+    <li><span class="letter">Q</span> <span class="morse-code">−−·−</span></li>
+    <li><span class="letter">R</span> <span class="morse-code">·−·</span></li>
+    <li><span class="letter">S</span> <span class="morse-code">···</span></li>
+    <li><span class="letter">T</span> <span class="morse-code">−</span></li>
+    <li><span class="letter">U</span> <span class="morse-code">··−</span></li>
+    <li><span class="letter">V</span> <span class="morse-code">···−</span></li>
+    <li><span class="letter">W</span> <span class="morse-code">·−−</span></li>
+    <li><span class="letter">X</span> <span class="morse-code">−··−</span></li>
+    <li><span class="letter">Y</span> <span class="morse-code">−·−−</span></li>
+    <li><span class="letter">Z</span> <span class="morse-code">−−··</span></li>
+    <li><span class="letter">0</span> <span class="morse-code">−−−−−</span></li>
+    <li><span class="letter">1</span> <span class="morse-code">·−−−−</span></li>
+    <li><span class="letter">2</span> <span class="morse-code">··−−−</span></li>
+    <li><span class="letter">3</span> <span class="morse-code">···−−</span></li>
+    <li><span class="letter">4</span> <span class="morse-code">····−</span></li>
+    <li><span class="letter">5</span> <span class="morse-code">·····</span></li>
+    <li><span class="letter">6</span> <span class="morse-code">−····</span></li>
+    <li><span class="letter">7</span> <span class="morse-code">−−···</span></li>
+    <li><span class="letter">8</span> <span class="morse-code">−−−··</span></li>
+    <li><span class="letter">9</span> <span class="morse-code">−−−−·</span></li>
+  </ul>
+</div>
+
+<div class="main">
+  <div class="container">
+    <h1>Descifrează codul Morse</h1>
+    <div class="morse" aria-label="Cod Morse">
+      -- --- ... / -.-. .-. .- -.-. .. ..- -. / . / ..- -. / --- -- / -. . -... ..- -.
+    </div>
+
+    <input type="text" id="userInput" placeholder="Scrie propoziția originală aici..." aria-label="Introdu propoziția originală" />
+    <button class="js-verify">Verifică</button>
+
+    <div class="result js-result" id="result" aria-live="polite"></div>
+  </div>
+</div>
+
+<script type="module" src="scripts/challenge2.js">
+ 
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misterul Cadoului Pierdut - Escape Room</title>
+    <link rel="stylesheet" href="css/provocare3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🔐 Misterul Cadoului Pierdut 🔐</h1>
+        <p class="intro-text">Rezolvă toate puzzle-urile pentru a deschide cadoul misterios ascuns!</p>
+
+        <div id="puzzle1" class="puzzle active">
+            <h2>1. Ghicitoarea Culorilor</h2>
+            <p>Aranjează discurile colorate în ordinea corectă: **Roșu, Albastru, Verde**.</p>
+            <div class="color-discs-container">
+                <div class="color-disc" data-color="blue" style="background-color: #0000FF;"></div>
+                <div class="color-disc" data-color="green" style="background-color: #008000;"></div>
+                <div class="color-disc" data-color="red" style="background-color: #FF0000;"></div>
+            </div>
+            <button id="check-colors-btn" class="action-btn">Verifică Ordinea</button>
+        </div>
+
+        <div id="puzzle2" class="puzzle">
+            <h2>2. Zodiacul Ascuns</h2>
+            <p>**Indiciu**: O creatură acvatică, cu două cozi, domină luna Iulie.</p>
+            <div class="zodiac-options">
+                <button data-zodiac="Gemini">♊ Gemeni</button>
+                <button data-zodiac="Cancer">♋ Rac</button>
+                <button data-zodiac="Leo">♌ Leu</button>
+                <button data-zodiac="Scorpio">♏ Scorpion</button>
+            </div>
+        </div>
+
+        <div id="puzzle3" class="puzzle">
+            <h2>3. Cântecul Trezit</h2>
+            <p>Apasă butonul când melodia se termină complet.</p>
+            <audio id="mystery-tune" src="audio/mystery_tune.mp3" preload="auto"></audio> <button id="play-audio-btn" class="action-btn">🎧 Ascultă Melodia</button>
+            <button id="stop-audio-btn" class="action-btn" disabled>🔇 Oprește</button>
+        </div>
+
+        <div id="puzzle4" class="puzzle">
+            <h2>4. Labirintul Luminilor</h2>
+            <p>Ghidează punctul de lumină de la **START** la **FINISH** fără să atingi pereții invizibili.</p>
+            <div id="maze-container">
+                <div id="light-dot"></div>
+                <div id="maze-start">START</div>
+                <div id="maze-finish">FINISH</div>
+            </div>
+            <p class="maze-instructions">(Folosește mouse-ul pentru a mișca punctul.)</p>
+        </div>
+
+        <div id="puzzle5" class="puzzle">
+            <h2>5. Enigma Statuilor</h2>
+            <p>Statuia căutată are: **un scut, nu ține sabie, și poartă o coroană.**</p>
+            <div class="statue-options">
+                <img src="https://via.placeholder.com/150/808080/FFFFFF?text=Statuia+A" alt="Statuia A" data-statue="A">
+                <img src="https://via.placeholder.com/150/808080/FFFFFF?text=Statuia+B" alt="Statuia B" data-statue="B">
+                <img src="https://via.placeholder.com/150/808080/FFFFFF?text=Statuia+C" alt="Statuia C" data-statue="C">
+            </div>
+            <p>(*Imaginile sunt placeholder. Imaginează-ți descrierile!*)</p>
+            <div class="statue-choices">
+                <button data-choice="A">Statuia A</button>
+                <button data-choice="B">Statuia B</button>
+                <button data-choice="C">Statuia C</button>
+            </div>
+        </div>
+
+        <div id="puzzle6" class="puzzle">
+            <h2>6. Constelația Secretă</h2>
+            <p>Conectează stelele în ordinea corectă (1, 2, 3, 4) pentru a dezvălui forma constelației.</p>
+            <div id="constellation-canvas-container">
+                <canvas id="constellationCanvas"></canvas>
+                <div class="star" id="star1" data-order="1" style="left: 20%; top: 30%;"></div>
+                <div class="star" id="star2" data-order="2" style="left: 70%; top: 20%;"></div>
+                <div class="star" id="star3" data-order="3" style="left: 80%; top: 70%;"></div>
+                <div class="star" id="star4" data-order="4" style="left: 30%; top: 80%;"></div>
+            </div>
+            <button id="check-constellation-btn" class="action-btn">Verifică Constelația</button>
+        </div>
+
+
+        <div id="final" class="puzzle">
+            <h2 class="final-message">🎉 Felicitări, ai deschis cadoul misterios! 🎁</h2>
+            <p>Toate puzzle-urile au fost rezolvate! Ești un adevărat detectiv al enigmelor!</p>
+            <button id="reset-game-btn" class="action-btn">Începe Jocul din Nou</button>
+        </div>
+
+        <div id="message-area" class="game-message"></div>
+    </div>
+
+    <script src="scripts/challenge3.js"></script>
+</body>
+</html>

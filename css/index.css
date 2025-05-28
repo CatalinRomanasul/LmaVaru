@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap');
+
+:root {
+    --main-bg-color: #2c3e50; /* Dark Blue/Gray */
+    --card-bg-color: #34495e; /* Slightly lighter dark blue */
+    --text-color: #ecf0f1; /* Light gray */
+    --accent-color: #f39c12; /* Orange accent */
+    --hover-color: #e67e22; /* Darker orange for hover */
+    --special-card-bg: #8e44ad; /* Purple for reward */
+    --special-card-hover: #9b59b6; /* Lighter purple for reward hover */
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #2c3e50, #34495e); /* Gradient background */
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: auto; /* Allow scrolling if content is too large */
+}
+
+.container {
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-color); /* Deeper shadow */
+    padding: 40px;
+    text-align: center;
+    width: 90%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    animation: fadeIn 1s ease-out; /* Fade in animation for container */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--accent-color);
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 5px var(--shadow-color);
+    animation: textPopIn 0.8s ease-out forwards; /* Text animation */
+    animation-delay: 0.5s;
+    opacity: 0; /* Start hidden for animation */
+}
+
+
+@keyframes textPopIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between cards */
+    justify-content: center;
+    align-items: stretch; /* Make cards same height */
+}
+
+.link-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 25px;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.link-card:hover {
+    transform: translateY(-8px) scale(1.03); /* Lift and grow effect */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    background-color: var(--hover-color); /* Change background on hover */
+    border-color: var(--accent-color); /* Highlight border on hover */
+}
+
+.link-card h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.link-card:hover h2 {
+    color: var(--text-color); /* Change text color on hover for contrast */
+}
+
+.link-card p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+/* Special styling for the reward link */
+.link-card.special-link {
+    background-color: var(--special-card-bg);
+    border-color: var(--special-card-bg); /* Initial border color */
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.6); /* Purple shadow */
+    animation: pulseBorder 2s infinite alternate; /* Pulsing border animation */
+}
+
+.link-card.special-link:hover {
+    background-color: var(--special-card-hover);
+    border-color: var(--special-card-hover); /* Keep consistent on hover */
+    box-shadow: 0 12px 25px rgba(142, 68, 173, 0.8); /* Stronger purple shadow on hover */
+}
+
+.link-card.special-link h2 {
+    color: var(--text-color); /* White text for special link title */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation for the special link border */
+@keyframes pulseBorder {
+    from { border-color: var(--special-card-bg); box-shadow: 0 4px 15px rgba(142, 68, 173, 0.6); }
+    to { border-color: #f1c40f; box-shadow: 0 4px 25px rgba(241, 196, 15, 0.8); } /* Pulsate to a yellow/gold */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+
+    .links-grid {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+        gap: 20px;
+    }
+
+    .link-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    .link-card h2 {
+        font-size: 1.5em;
+    }
+
+    .link-card p {
+        font-size: 1em;
+    }
+}
+.error{
+    color: red;
+    font-weight: bold;
+    font-size: 2.2rem;
+    opacity: 0;
+}
+.errorON {
+    opacity: 1;
+}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <title>La mulți ani, Vărule!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  background: radial-gradient(circle at center, #1e1e3f, #0a0a1f);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  align-items: flex-start;
+}
+    .container {
+      text-align: center;
+      z-index: 2;
+      padding: 40px 20px;
+      max-width: 850px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ff4081;
+    }
+
+    h1 {
+      font-family: "Great Vibes", cursive;
+      font-size: 4.2em;
+      margin-bottom: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
+      color: #ffc3dc;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 15px #ff80ab;
+      }
+      to {
+        text-shadow: 0 0 30px #ff4081;
+      }
+    }
+
+    .message {
+      font-size: 1.5em;
+      line-height: 1.7;
+      margin: 30px auto 40px;
+      max-width: 700px;
+      animation: fadeIn 2.5s ease forwards;
+      color: #ffeef7;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gift {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(to bottom, #f06292, #ec407a);
+      margin: 30px auto;
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 0 25px #ec407a;
+      animation: pulse 2s infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gift:before,
+    .gift:after {
+      content: "";
+      position: absolute;
+      background: #fff;
+    }
+
+    .gift:before {
+      width: 100%;
+      height: 20px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .gift:after {
+      width: 20px;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .gift span {
+      font-size: 2em;
+      color: white;
+    }
+
+    .gift-text {
+      display: none;
+      font-size: 1.7em;
+      margin-top: 25px;
+      color: #ffdede;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 15px #f06292;
+      }
+      50% {
+        box-shadow: 0 0 40px #f06292;
+      }
+      100% {
+        box-shadow: 0 0 15px #f06292;
+      }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .message {
+    font-size: 1.2em;
+    padding: 15px;
+  }
+
+  .container {
+    padding: 20px 15px;
+    margin: 20px 10px;
+  }
+
+  .gift {
+    width: 130px;
+    height: 130px;
+  }
+
+  .gift-text {
+    font-size: 1.4em;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+
+  <div class="container">
+    <h1>🎉 La mulți ani, Vărule drag! 🎉</h1>
+    <p class="message">
+      Astăzi este o zi specială pentru un om cu adevărat special! Îți doresc o
+      viață plină de împliniri, aventuri grozave, râsete sincere și oameni frumoși
+      alături de tine. Bucură-te de fiecare moment și nu uita cât de iubit ești!
+      💫
+    </p>
+
+    <div class="gift" id="giftBtn">
+      <span>🎁</span>
+    </div>
+    <div id="giftText" class="gift-text">
+      ✨ Cu toată inima: La mulți ani, Vărule! Fie ca ziua ta să fie la fel de minunată
+      ca tine! ✨
+    </div>
+  </div>
+
+  <!-- YouTube Player API -->
+  <div id="player"></div>
+
+  <script>
+    // YouTube API code
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player("player", {
+        height: "0",
+        width: "0",
+        videoId: "4ujpwIyyNTc",
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          loop: 1,
+          playlist: "4ujpwIyyNTc",
+        },
+        events: {
+          onReady: onPlayerReady,
+        },
+      });
+    }
+    function onPlayerReady(event) {
+      // ready
+    }
+    function playMusic() {
+      if (player && player.playVideo) {
+        player.playVideo();
+      }
+    }
+
+    // Confetti + imagine
+    const canvas = document.getElementById("confetti");
+    const ctx = canvas.getContext("2d");
+    let confetti = [];
+    let confettiInterval;
+    let isConfettiActive = false;
+
+    // Încarcă imaginea
+    const faceImg = new Image();
+    faceImg.src = "varu.jpg"; // Schimbă cu calea imaginii tale
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function createConfetti() {
+      confetti = [];
+      for (let i = 0; i < 100; i++) {
+        confetti.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          r: Math.random() * 6 + 4,
+          d: Math.random() * 50 + 10,
+          color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+          tilt: Math.random() * 10 - 10,
+          isFace: false, // Toate confetti-urile încep normale
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: Math.random() * 0.1 - 0.05
+        });
+      }
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach((p) => {
+        if (p.isFace && faceImg.complete) {
+          // Desenează imaginea rotită
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rotation);
+          const size = p.r * 6;
+          ctx.drawImage(faceImg, -size/2, -size/2, size, size);
+          ctx.restore();
+          
+          // Actualizează rotația
+          p.rotation += p.rotationSpeed;
+        } else {
+          // Desenează confetti normal
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        }
+      });
+      moveConfetti();
+    }
+
+    function moveConfetti() {
+      confetti.forEach((p) => {
+        p.y += Math.cos(p.d) + 1 + p.r / 2;
+        p.x += Math.sin(p.d) * 0.5;
+        p.tilt = Math.sin(p.y * 0.01) * 10;
+        
+        if (p.y > canvas.height) {
+          p.y = -20;
+          p.x = Math.random() * canvas.width;
+          // La resetare, păstrează starea de imagine sau confetti
+        }
+      });
+    }
+
+    function startConfetti() {
+      if (!isConfettiActive) {
+        isConfettiActive = true;
+        createConfetti();
+        if (confettiInterval) clearInterval(confettiInterval);
+        confettiInterval = setInterval(drawConfetti, 30);
+      }
+    }
+
+    // Eveniment click pe cadou
+    document.getElementById("giftBtn").addEventListener("click", () => {
+      playMusic();
+      showMessage();
+      startConfetti();
+    });
+
+    // Eveniment click pe canvas
+    canvas.addEventListener('click', function(e) {
+      if (!isConfettiActive) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      
+      // Verifică dacă s-a dat click pe un confetti
+      for (let i = 0; i < confetti.length; i++) {
+        const p = confetti[i];
+        const distance = Math.sqrt(
+          Math.pow(mouseX - p.x, 2) + 
+          Math.pow(mouseY - p.y, 2)
+        );
+        
+        if (distance < p.r * 3) {
+          // Transformă confetti-ul în imagine
+          p.isFace = true;
+          p.r = 12; // Mărește dimensiunea pentru imagine
+          break; // Oprește după primul confetti găsit
+        }
+      }
+    });
+
+    // Afișează mesajul de felicitare
+    function showMessage() {
+      document.getElementById("giftText").style.display = "block";
+    }
+
+    // Încarcă API YouTube
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+  </script>
+</body>
+</html>
